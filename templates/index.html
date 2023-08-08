@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link CSS file to html -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- declare title variable to pass through at runtime - use {{xxxxx}} -->
+    <title>{{title}}</title>
+</head>
+<body>
+    <!-- use title variable as heading for top of page -->
+    <header>
+        <div id="logo">
+            <h1>{{title}}</h1>
+        </div>
+        <nav id="topmenu">
+            <ul>
+                <!-- our nav links will go here -->
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Shop</a></li>
+                <li><a class="current" href="/orders">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <ul>
+        <!-- for  -->
+        {% for order in orders %}
+        <!-- Display the Customer, Book Title, Description -->
+            <li>
+                <a class="orderline" href="/orders/{{orders.index(order)}}">Order #{{orders.index(order)}}:</a>
+                <a href="/orders/{{orders.index(order)}}">{{order.date}} {{order.quantity}} {{order.type}} @ £{{order.price}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

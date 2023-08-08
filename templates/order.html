@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <!-- use title variable as heading for top of page -->
+    <header>
+        <div id="logo">
+            <h1>{{title}}</h1>
+        </div>
+        <nav id="topmenu">
+            <ul>
+                <!-- our nav links will go here -->
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/contact">Shop</a></li>
+                <li><a href="/orders">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- use title variable as heading for top of page -->
+    <h1>Order #{{order_number}} Details</h1>
+    <ul>
+        <!-- Display all the details of the order -->
+            <li>
+                <p>Date: {{order.order_date}}</p>
+                <p>Customer: {{order.customer_name}}</p>
+                <p>Quantity: {{order.quantity}}</p>
+                <p>Title: {{order.title}}</p>
+                <p>Author: {{order.author}}</p>
+                <p>Description: {{order.description}}</p>
+                <p>Price: £{{order.price}}</p>
+                <p>Type: {{order.type}}</p>
+            </li>
+    </ul>
+</body>
+</html>
